@@ -37,7 +37,6 @@ class TryCatchMeWindow:
     def __init__(self, master, text):
         self.master = master
         self.popup = tk.Toplevel(master)
-        self.popup.title("Is Mayonaise an instrument?")
         self.popup.protocol("WM_DELETE_WINDOW", self.try_close)
         self.popup.overrideredirect(1)
 
