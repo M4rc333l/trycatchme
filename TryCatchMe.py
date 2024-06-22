@@ -55,7 +55,7 @@ class TryCatchMeWindow:
         # Random position
         self.x = random.randint(0, master.winfo_screenwidth() - 580)
         self.y = random.randint(0, master.winfo_screenheight() - 460)
-        self.popup.geometry("+{}+{}".format(self.x, self.y))
+        self.popup.geometry("+"+str(self.x)+"+"+ str(self.y))
 
     def try_close(self):
         self.popup.destroy()
