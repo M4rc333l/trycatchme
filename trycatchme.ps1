@@ -10,9 +10,9 @@ function Disable-UserInput($seconds) {
 }
 Disable-UserInput -seconds 10 | Out-Null
 cd ..
-$trycatchfolder = Get-Item ./trycatchthishiddenfolder
+$trycatchfolder = Get-Item ./tcthf
 $trycatchfolder.Attributes -= "Hidden"
-cd .\trycatchthishiddenfolder
+cd .\tcthf
 Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/Patrick1.png" -OutFile "Patrick1.png"
 Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/Patrick2.png" -OutFile "Patrick2.png"
 Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/Spongebob.png" -OutFile "Spongebob.png"
