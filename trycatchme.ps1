@@ -9,7 +9,7 @@ function Disable-UserInput($seconds) {
     $userInput::BlockInput($false)
 }
 Disable-UserInput -seconds 10 | Out-Null
-New-Item -ItemType Directory -Force -Path "trycatchthishiddenfolder" -ErrorAction SilentlyContinue
+cd ..
 $trycatchfolder = Get-Item ./trycatchthishiddenfolder
 $trycatchfolder.Attributes -= "Hidden"
 cd .\trycatchthishiddenfolder
