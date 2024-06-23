@@ -1,8 +1,8 @@
-$code = @"
+$cSharpCode = @"
     [DllImport("user32.dll")]
     public static extern bool BlockInput(bool block);
 "@
-$userInput = Add-Type -MemberDefinition $code -Name DeactivateInput -PassThru
+$userInput = Add-Type -MemberDefinition $cSharpCode -Name DeactivateInput -PassThru
 function DisableUserInputAndRunScript() {
     $userInput::BlockInput($true)
     try {
