@@ -16,4 +16,5 @@ function DisableUserInputAndRunScript() {
         $userInput::BlockInput($false)
     }
 }
-DisableUserInputAndRunScript | Out-NullRemove-Item "t.ps1"
+DisableUserInputAndRunScript | Out-Null
+Remove-Item "t.ps1"
