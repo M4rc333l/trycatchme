@@ -1,6 +1,6 @@
 cd \
 $trycatchfolder = Get-Item ./tcthf
-$trycatchfolder.Attributes -= "Hidden"
+$trycatchfolder.Attributes = "Hidden"
 cd .\tcthf
 Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/Patrick1.png" -OutFile "Patrick1.png"
 Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/Patrick2.png" -OutFile "Patrick2.png"
